@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -66,6 +67,8 @@ public class CodeActivity extends AppCompatActivity {
         RecyclerView lstCodes = findViewById(R.id.lstCodes);
         lstCodes.setLayoutManager(new LinearLayoutManager(this));
 
+        TextView txtinfo = findViewById(R.id.txtInfo);
+
         ImageView imgLogo = findViewById(R.id.imgLogo);
         ImageView imgAlert = findViewById(R.id.imgAlert);
         viewModel = new ViewModelProvider(this).get(DbViewModel.class);
@@ -79,6 +82,9 @@ public class CodeActivity extends AppCompatActivity {
         String brandTag = getIntent().getStringExtra(BRANDTAG);
         logo_url = getIntent().getStringExtra(LOGO);
         info = getIntent().getStringExtra(INFO);
+
+        if((info!=null) && (!info.isEmpty()))
+            txtinfo.setText(info);
 
         if(logo_url==null || logo_url.isEmpty()|| logo_url.equals("null")|| logo_url.equals("non"))
             Glide.with(CodeActivity.this).load(R.drawable.icn).into(imgLogo);
