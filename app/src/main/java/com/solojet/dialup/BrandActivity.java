@@ -54,7 +54,10 @@ public class BrandActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle(sector.toUpperCase());
+            if(sector.toLowerCase().equals("law"))
+                actionBar.setTitle("EMERGENCY");
+            else
+                actionBar.setTitle(sector.toUpperCase());
         }
 
         RecyclerView lstBrand = findViewById(R.id.lstBrand);

@@ -42,7 +42,7 @@ public class Commons {
 
     public static void share(String code, String purpose, Context context){
 
-        String output = purpose + ": "+code + "\n\nDownload Dailup app for all USSD codes: https://play.google.com/store/apps/details?https://play.google.com/store/apps/details?com.solojet.dialup" ;
+        String output = purpose + ": "+code + "\n\nDownload Dialup app to quickly dial any USSD code or emergency number: https://play.google.com/store/apps/details?id=com.solojet.dialup" ;
 
         Intent share = new Intent(Intent.ACTION_SEND);share.setType("text/plain");
         share.putExtra(Intent.EXTRA_TEXT, output);
@@ -94,12 +94,14 @@ public class Commons {
     }
 
     public static CollectionReference getBrandReference(String country) {
-        brandReference = getDatabase().collection(country+"_"+BRANDS);
+        if(brandReference==null)
+            brandReference = getDatabase().collection(country+"_"+BRANDS);
         return brandReference;
     }
 
     public static CollectionReference getCodeReference(String country) {
-        codeReference = getDatabase().collection(country+"_"+CODES);
+        if(codeReference==null)
+            codeReference = getDatabase().collection(country+"_"+CODES);
         return codeReference;
     }
 }

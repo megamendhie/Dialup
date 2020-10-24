@@ -111,10 +111,10 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 intent = new Intent(getContext(), AboutActivity.class);
                 break;
             case R.id.lnrRate:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?com.solojet.dialup"));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://play.google.com/store/apps/details?id=com.solojet.dialup"));
                 break;
             case R.id.lnrShare:
-                String output = "Download Dailup app for easy access to all USSD codes and emergency phone numbers: https://play.google.com/store/apps/details?com.solojet.dialup" ;
+                String output = "Download Dialup app to quickly dial any USSD code or emergency number:\n\n https://play.google.com/store/apps/details?id=com.solojet.dialup" ;
                 intent = new Intent(Intent.ACTION_SEND); intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, output);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY | Intent.FLAG_ACTIVITY_NEW_DOCUMENT |
