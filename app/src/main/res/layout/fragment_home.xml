@@ -13,37 +13,40 @@
             android:id="@+id/crdInfo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:cardCornerRadius="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:cardCornerRadius="10dp">
+            app:layout_constraintTop_toTopOf="parent">
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:padding="8dp"
                 android:background="@color/colorAccent"
+                android:padding="8dp"
+                android:text="@string/text_info"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:text="@string/text_info"/>
+                android:textSize="16sp" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/crdSettings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/crdInfo"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="10dp">
+            app:layout_constraintTop_toBottomOf="@id/crdInfo">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
+                android:baselineAligned="false"
                 android:orientation="horizontal"
                 android:padding="2dp"
-                android:weightSum="8"
-                android:background="@color/colorAccent"
-                android:baselineAligned="false">
+                android:weightSum="8">
+
                 <LinearLayout
                     android:id="@+id/lnrAbout"
                     android:layout_width="0dp"
@@ -58,13 +61,14 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:tint="@color/colorPrimary"
-                        android:src="@drawable/ic_info_outline_black_24dp"/>
+                        android:src="@drawable/ic_info_outline_black_24dp"
+                        android:tint="@color/colorPrimary" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:text="About"/>
+                        android:text="About"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -81,13 +85,14 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:tint="@color/colorPrimary"
-                        android:src="@drawable/ic_star_black_24dp"/>
+                        android:src="@drawable/ic_star_black_24dp"
+                        android:tint="@color/colorPrimary" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:text="Rate App"/>
+                        android:text="Rate App"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -102,13 +107,14 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:tint="@color/colorPrimary"
-                        android:src="@drawable/ic_share_black_24dp"/>
+                        android:src="@drawable/ic_share_black_24dp"
+                        android:tint="@color/colorPrimary" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:text="Share App"/>
+                        android:text="Share App"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -125,13 +131,14 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:tint="@color/colorPrimary"
-                        android:src="@drawable/ic_settings_black_24dp"/>
+                        android:src="@drawable/ic_settings_black_24dp"
+                        android:tint="@color/colorPrimary" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:text="Settings"/>
+                        android:text="Settings"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -151,94 +158,100 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/crdTelco"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            android:layout_marginTop="15dp"
             app:cardCornerRadius="@dimen/corner_radius"
+            app:layout_constraintRight_toLeftOf="@id/crdTv"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/txtCategories">
 
 
             <FrameLayout
-                android:layout_width="180dp"
-                android:layout_height="200dp">
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/crd_height_xhdpi">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/pica"/>
+                    android:src="@drawable/pica" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Telecommunications"
                     android:layout_margin="16dp"
-                    android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                    android:text="Telecommunications"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textStyle="bold" />
 
             </FrameLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/crdBanking"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            app:cardCornerRadius="@dimen/corner_radius"
+            android:layout_marginRight="20dp"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="@dimen/corner_radius"
+            app:layout_constraintRight_toLeftOf="@+id/crdHealth"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/crdTelco">
 
 
             <FrameLayout
-                android:layout_width="180dp"
-                android:layout_height="200dp">
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/crd_height_xhdpi">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/picc"/>
+                    android:src="@drawable/picc" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Banks"
                     android:layout_margin="16dp"
-                    android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                    android:text="Banks"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textStyle="bold" />
             </FrameLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/crdSecurity"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginTop="15dp"
+            android:layout_marginRight="20dp"
             app:cardCornerRadius="@dimen/corner_radius"
+            app:layout_constraintRight_toLeftOf="@id/crdSports"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/crdBanking">
 
             <FrameLayout
-                android:layout_width="180dp"
-                android:layout_height="200dp">
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/crd_height_xhdpi">
 
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/picg"/>
+                    android:src="@drawable/pich"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Security"
+                    android:text="Emergency"
                     android:layout_margin="16dp"
                     android:textStyle="bold"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
@@ -248,18 +261,19 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/crdTv"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginTop="15dp"
             app:cardCornerRadius="@dimen/corner_radius"
             app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/crdTelco"
             app:layout_constraintTop_toBottomOf="@id/txtCategories">
 
             <FrameLayout
-                android:layout_width="180dp"
-                android:layout_height="220dp">
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/crd_height_xhdpi_ex">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -279,17 +293,18 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/crdHealth"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginTop="15dp"
             app:cardCornerRadius="@dimen/corner_radius"
+            app:layout_constraintLeft_toRightOf="@id/crdBanking"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/crdTv">
             <FrameLayout
-                android:layout_width="180dp"
-                android:layout_height="200dp">
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/crd_height_xhdpi">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -310,17 +325,18 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/crdSports"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
             android:layout_marginTop="15dp"
             app:cardCornerRadius="@dimen/corner_radius"
+            app:layout_constraintLeft_toRightOf="@id/crdSecurity"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/crdHealth">
             <FrameLayout
-                android:layout_width="180dp"
-                android:layout_height="200dp">
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/crd_height_xhdpi">
 
 
                 <ImageView
