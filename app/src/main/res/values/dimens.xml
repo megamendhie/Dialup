@@ -1,4 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="corner_radius">16dp</dimen>
+    <dimen name="crd_height_ldpi">160dp</dimen>
+    <dimen name="crd_height_ldpi_ex">180dp</dimen>
+    <dimen name="crd_height_mdpi">170dp</dimen>
+    <dimen name="crd_height_mdpi_ex">190dp</dimen>
+    <dimen name="crd_height_hdpi">190dp</dimen>
+    <dimen name="crd_height_hdpi_ex">210dp</dimen>
+    <dimen name="crd_height_xhdpi">200dp</dimen>
+    <dimen name="crd_height_xhdpi_ex">220dp</dimen>
 </resources>

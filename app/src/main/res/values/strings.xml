@@ -10,9 +10,9 @@
     <string name="text_info_full">Dialup gives you easy access to your favourite USSD codes and emergency numbers.
         \n\nThe app contains the short codes for banks, network service, TV subscription, health services, etc. Also, the app has emergency phone numbers you can quickly dial whenever the need arises. This includes Police Help lines, Rape Complaint Numbers, Quick Response Squad, etc.</string>
     <string name="txt_brand_logo">Brand logo</string>
-    <string name="txt_dev">Developed with ❤️ by <a href="https://twitter.com/Megamendhie">Mendhie (@Megamendhie)</a>
-        \n\nCodes curated by <a href="https://twitter.com/Megamendhie">Mendhie</a> and <a href="https://facebook.com/nwugo.jasmine">Jaachimma</a>
-        \n\nLogo designed by <a href="https://twitter.com/Nsikakowo">Nsikak Owo</a>
-        \n\nIllustrations from <a href="https://dribbble.com/shots/5345128-Free-Illustration-Open-Account-Digital-Banking-Illustration">Pablo</a>, <a href="https://www.freepik.com/free-vector/illustration-satellite_2632421.htm#">Rawpixel</a>, and <a href="https://dribbble.com/shots/12189542-Futuristic-soldier">Thierry</a></string>
+    <string name="txt_dev">Developed with ❤️ by Mendhie Emmanuel
+        \n\nCodes curated by Mendhie Emmanuel and Nwugo Jaachimma</string>
     <string name="txt_mail"><u>swiftqube@gmail.com</u></string>
+    <string name="txt_credit">Logo designed by Nsikak Owo
+        \n\nRoyalty-free illustrations from <a href="https://dribbble.com/shots/5345128-Free-Illustration-Open-Account-Digital-Banking-Illustration">Pablo</a>, <a href="https://www.freepik.com/free-vector/illustration-satellite_2632421.htm#">Rawpixel</a>, and <a href="https://dribbble.com/shots/12189542-Futuristic-soldier">Thierry</a></string>
 </resources>
