@@ -15,7 +15,7 @@ import models.Code;
 import models.Log;
 
 @Database(entities = {Code.class, Log.class}, version = 1, exportSchema = false)
-public abstract class RoomDb extends RoomDatabase {
+abstract class RoomDb extends RoomDatabase {
     abstract FavoriteDoa favDoa();
     abstract LogDoa logDoa();
 
