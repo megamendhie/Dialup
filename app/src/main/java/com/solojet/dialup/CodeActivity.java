@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,16 +50,18 @@ import static models.Commons.getStorage;
 
 public class CodeActivity extends AppCompatActivity {
 
-    DbViewModel viewModel;
-    List<Code> favorites;
-    CodeAdapter adapter;
+    private DbViewModel viewModel;
+    private List<Code> favorites;
+    private CodeAdapter adapter;
 
-    String logo_url, info;
+    private String logo_url;
+    private ProgressBar prgLoading;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_code);
 
+        prgLoading = findViewById(R.id.prgLoading);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -82,9 +85,9 @@ public class CodeActivity extends AppCompatActivity {
         String country = "NG";
         String brandTag = getIntent().getStringExtra(BRANDTAG);
         logo_url = getIntent().getStringExtra(LOGO);
-        info = getIntent().getStringExtra(INFO);
+        String info = getIntent().getStringExtra(INFO);
 
-        if((info!=null) && (!info.isEmpty()))
+        if((info !=null) && (!info.isEmpty()))
             txtinfo.setText(info);
 
         if(logo_url==null || logo_url.isEmpty()|| logo_url.equals("null")|| logo_url.equals("non"))
@@ -95,6 +98,7 @@ public class CodeActivity extends AppCompatActivity {
         Query query = getCodeReference(country).orderBy(PRIORITY, Query.Direction.ASCENDING).whereEqualTo(BRANDTAG, brandTag);
 
         query.get().addOnCompleteListener(task -> {
+            prgLoading.setVisibility(View.GONE);
             if(!task.isSuccessful()||task.getResult() == null ||
                     (task.getResult().getDocuments().size()==0 && !getNetworkAvailability(getApplicationContext())))
             {
@@ -120,6 +124,7 @@ public class CodeActivity extends AppCompatActivity {
         lstCodes.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
             @Override
             public void onChildViewAttachedToWindow(@NonNull View view) {
+                prgLoading.setVisibility(View.GONE);
                 if(imgAlert.getVisibility()==View.VISIBLE)
                     imgAlert.setVisibility(View.GONE);
             }

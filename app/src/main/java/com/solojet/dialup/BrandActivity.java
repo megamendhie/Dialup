@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -42,13 +43,15 @@ import static models.Commons.getStorage;
 
 public class BrandActivity extends AppCompatActivity {
     String country = "NG";
-    private RequestOptions requestOptions = new RequestOptions();
+    private final RequestOptions requestOptions = new RequestOptions();
+    private ProgressBar prgLoading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_brand);
         String sector = getIntent().getStringExtra(SECTOR);
+        prgLoading = findViewById(R.id.prgLoading);
 
 
         ActionBar actionBar = getSupportActionBar();
@@ -69,6 +72,7 @@ public class BrandActivity extends AppCompatActivity {
         Query query = getBrandReference(country).orderBy(NAME).whereEqualTo(SECTOR, sector);
 
         query.get().addOnCompleteListener(task -> {
+            prgLoading.setVisibility(View.GONE);
             if(!task.isSuccessful()||task.getResult() == null ||
                     (task.getResult().getDocuments().size()==0 && !getNetworkAvailability(getApplicationContext())))
             {
@@ -95,6 +99,7 @@ public class BrandActivity extends AppCompatActivity {
         lstBrand.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
             @Override
             public void onChildViewAttachedToWindow(@NonNull View view) {
+                prgLoading.setVisibility(View.GONE);
                 if(imgAlert.getVisibility()==View.VISIBLE)
                     imgAlert.setVisibility(View.GONE);
             }
