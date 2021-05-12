@@ -1,13 +1,11 @@
 <resources>
     <string name="app_name">Dialup</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="txt_new_version_prompt">New version available</string>
     <string name="txt_new_version_des">You have an older version of the app.\nKindly update to get the latest version for best experience.</string>
     <string name="txt_later">LATER</string>
     <string name="txt_update">UPDATE</string>
-    <string name="text_info_full">Dialup app has all the USSD codes and emergency numbers you need.
-        \n\nThe app contains the USSD codes for banks, telecoms, TV subscription, health services, etc. It also contains emergency and quick response numbers for important agencies like the Police, Rape Complaint Centre, Quick Response Squad, Fire Service, etc.</string>
+    <string name="text_info_full">Dialup is an all-in-one app for USSD codes and emergency numbers you need.
+        \n\nDialup contains all the USSD codes for banks, mobile networks, TV subscription, health services, sports sites, etc. It also contains emergency and quick response numbers for important agencies like the Police, Rape Complaint Centre, Quick Response Squad, Fire Service, etc.</string>
     <string name="txt_brand_logo">Brand logo</string>
     <string name="txt_dev">Developed with ❤️ by <a href="https://twitter.com/Megamendhie">Mendhie Emmanuel</a>
         \n\nCodes curated by <a href="https://twitter.com/Megamendhie">Mendhie Emmanuel</a> and <a href="https://web.facebook.com/nwugo.jasmine">Nwugo Jaachimma</a></string>

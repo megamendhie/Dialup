@@ -9,4 +9,7 @@
     <dimen name="crd_height_hdpi_ex">210dp</dimen>
     <dimen name="crd_height_xhdpi">200dp</dimen>
     <dimen name="crd_height_xhdpi_ex">220dp</dimen>
+    <dimen name="img_xhd">90dp</dimen>
+    <dimen name="img_hd">85dp</dimen>
+    <dimen name="img_ld">76dp</dimen>
 </resources>
