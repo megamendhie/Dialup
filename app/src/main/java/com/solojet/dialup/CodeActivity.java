@@ -36,6 +36,7 @@ import roomdb.DbViewModel;
 
 import static models.Commons.BRANDTAG;
 import static models.Commons.CLICKS;
+import static models.Commons.CODES;
 import static models.Commons.INFO;
 import static models.Commons.LOGO;
 import static models.Commons.PRIORITY;
@@ -237,7 +238,6 @@ public class CodeActivity extends AppCompatActivity {
                         Log.i("CodeAct", "apply: code doesn't exist");
                         return null;
                     }
-
                     long count = snapshot.contains(CLICKS)? snapshot.getLong(CLICKS): 0;
                     transaction.update(codeRef, CLICKS, count + 1);
                     return null;

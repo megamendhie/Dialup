@@ -9,34 +9,14 @@
         android:layout_height="match_parent"
         android:padding="14dp">
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/crdInfo"
+       <androidx.cardview.widget.CardView
+            android:id="@+id/crdSettings"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardCornerRadius="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
-                android:padding="8dp"
-                android:text="@string/text_info"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                android:textSize="16sp" />
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/crdSettings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            app:cardCornerRadius="10dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/crdInfo">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -184,8 +164,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:text="Telecommunications"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:text="Telecom"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textStyle="bold" />
 
             </FrameLayout>
@@ -220,7 +200,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:text="Banks"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                     android:textStyle="bold" />
             </FrameLayout>
         </androidx.cardview.widget.CardView>
@@ -254,7 +234,7 @@
                     android:text="Emergency"
                     android:layout_margin="16dp"
                     android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
             </FrameLayout>
 
         </androidx.cardview.widget.CardView>
@@ -287,7 +267,7 @@
                     android:text="Tv Subscription"
                     android:layout_margin="16dp"
                     android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
             </FrameLayout>
         </androidx.cardview.widget.CardView>
 
@@ -318,7 +298,7 @@
                     android:text="Health"
                     android:layout_margin="16dp"
                     android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
             </FrameLayout>
 
         </androidx.cardview.widget.CardView>
@@ -351,7 +331,7 @@
                     android:text="Sports &amp; Gaming"
                     android:layout_margin="16dp"
                     android:textStyle="bold"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"/>
+                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
             </FrameLayout>
 
         </androidx.cardview.widget.CardView>
