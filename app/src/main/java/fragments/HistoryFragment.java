@@ -21,11 +21,15 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.Transaction;
 import com.solojet.dialup.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Locale;
+import java.util.TimeZone;
 
 import holders.HeaderViewHolder;
 import holders.HistoryViewHolder;
@@ -37,6 +41,7 @@ import models.Commons;
 import models.CustomLog;
 import models.GlideApp;
 import models.Log;
+import models.OrganizedLog;
 import roomdb.DbViewModel;
 
 import static models.Commons.CODES;
@@ -53,7 +58,7 @@ import static models.Commons.getStorage;
 public class HistoryFragment extends Fragment {
     private DbViewModel viewModel;
     private List<Code> favorites;
-    private RequestOptions requestOptions = new RequestOptions();
+    private final RequestOptions requestOptions = new RequestOptions();
 
     public HistoryFragment() {
         // Required empty public constructor
@@ -91,12 +96,16 @@ public class HistoryFragment extends Fragment {
             lstHistory.setAdapter(sectionedAdapter);
             HashMap<String, List<Log>> logsPerDay = getLogsPerDay(logs);
             HashMap<String, List<CustomLog>> customLogsPerDay = getCustomLogsPerDay(logsPerDay);
-            for(Map.Entry log: customLogsPerDay.entrySet()){
-                String date = (String) log.getKey();
-                List<CustomLog> customLog = (List<CustomLog>) log.getValue();
+            ArrayList<OrganizedLog> organizedLogs = new ArrayList<>();
+            for(String date: customLogsPerDay.keySet()){
+                List<CustomLog> customLog = customLogsPerDay.get(date);
                 Collections.sort(customLog);
-                sectionedAdapter.addSection(date, new HistorySection(customLog, date));
+                organizedLogs.add(new OrganizedLog(Long.parseLong(date), customLog));
             }
+            Collections.sort(organizedLogs);
+            for (OrganizedLog log: organizedLogs)
+                sectionedAdapter.addSection(String.valueOf(log.getTimeStamp()),
+                        new HistorySection(log.getListOfCalls(), log.getTimeStamp()));
             sectionedAdapter.notifyDataSetChanged();
         });
         return view;
@@ -129,9 +138,23 @@ public class HistoryFragment extends Fragment {
                 customLogs.add(customLogHashMap.get(log_id));
             }
 
-            listCustomHashMap.put(date, customLogs);
+            listCustomHashMap.put(getNumericalDate(date), customLogs);
         }
         return listCustomHashMap;
+    }
+
+    private String getNumericalDate(String rawTime){
+        SimpleDateFormat oldFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.ENGLISH);
+        oldFormat.setTimeZone(TimeZone.getDefault());
+        Date dt = null;
+        try {
+            dt = oldFormat.parse(rawTime);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            android.util.Log.i("HistoryFrag", "getFormattedTime error: "+ e.getMessage());
+            return "0";
+        }
+        return dt==null? "0": String.valueOf(dt.getTime());
     }
 
     private HashMap<String, List<Log>> getLogsPerDay(List<Log> logs) {
@@ -162,15 +185,15 @@ public class HistoryFragment extends Fragment {
          */
 
         List<CustomLog> customLogs;
-        String date;
+        long timeStamp;
 
-        HistorySection(List<CustomLog> customLogs, String date) {
+        HistorySection(List<CustomLog> customLogs, long timeStamp) {
             super(SectionParameters.builder()
                     .itemResourceId(R.layout.item_history)
                     .headerResourceId(R.layout.item_header)
                     .build());
             this.customLogs = customLogs;
-            this.date = date;
+            this.timeStamp = timeStamp;
         }
 
         @Override
@@ -191,6 +214,7 @@ public class HistoryFragment extends Fragment {
         @Override
         public void onBindHeaderViewHolder(RecyclerView.ViewHolder holder) {
             HeaderViewHolder headerViewHolder = (HeaderViewHolder) holder;
+            String date = DateFormat.format("d MMM yyyy", timeStamp).toString();
             headerViewHolder.txtDate.setText(date);
         }
 
