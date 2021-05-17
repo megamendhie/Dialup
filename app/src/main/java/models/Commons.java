@@ -15,6 +15,7 @@ import com.google.firebase.storage.FirebaseStorage;
 public class Commons {
     public static String NAME = "name";
     public static String CODES = "Codes";
+    public static String BRAND = "Brand";
     public static String BRANDS = "Brands";
     public static String SECTOR = "sector";
     public static String PRIORITY = "priority";
