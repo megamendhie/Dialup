@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     final Fragment fragmentHistory = new HistoryFragment();
 
     private Fragment fragmentActive = fragmentHome;
-    private FragmentManager fragmentManager = getSupportFragmentManager();
+    private final FragmentManager fragmentManager = getSupportFragmentManager();
 
     private FirebaseRemoteConfig mFirebaseRemoteConfig;
     private final long versionCode = BuildConfig.VERSION_CODE;

@@ -30,16 +30,15 @@ import com.google.firebase.firestore.Transaction;
 import java.util.List;
 
 import holders.CodeViewHolder;
+import models.Brand;
 import models.Code;
 import models.Commons;
 import models.GlideApp;
 import roomdb.DbViewModel;
 
+import static models.Commons.BRAND;
 import static models.Commons.BRANDTAG;
 import static models.Commons.CLICKS;
-import static models.Commons.CODES;
-import static models.Commons.INFO;
-import static models.Commons.LOGO;
 import static models.Commons.PRIORITY;
 import static models.Commons.actionButtonOnClick;
 import static models.Commons.copyToClipboard;
@@ -63,10 +62,6 @@ public class CodeActivity extends AppCompatActivity {
 
         prgLoading = findViewById(R.id.prgLoading);
         ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Codes");
-        }
 
         RecyclerView lstCodes = findViewById(R.id.lstCodes);
         lstCodes.setLayoutManager(new LinearLayoutManager(this));
@@ -75,6 +70,18 @@ public class CodeActivity extends AppCompatActivity {
 
         ImageView imgLogo = findViewById(R.id.imgLogo);
         ImageView imgAlert = findViewById(R.id.imgAlert);
+
+        String country = "NG";
+        Brand brand = getIntent().getParcelableExtra(BRAND);
+        String brandTag = brand!=null? brand.getBrandTag(): "";
+        logo_url = brand!=null? brand.getLogo(): "";
+        String brandInfo = brand!=null? brand.getInfo(): "";
+        String brandName = brand!=null? brand.getName(): "";
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle(brandName);
+        }
+
         viewModel = new ViewModelProvider(this).get(DbViewModel.class);
         viewModel.getAllFavorite().observe(this, codes -> {
             favorites = codes;
@@ -82,13 +89,8 @@ public class CodeActivity extends AppCompatActivity {
                 adapter.setFavText();
             });
 
-        String country = "NG";
-        String brandTag = getIntent().getStringExtra(BRANDTAG);
-        logo_url = getIntent().getStringExtra(LOGO);
-        String info = getIntent().getStringExtra(INFO);
-
-        if((info !=null) && (!info.isEmpty()))
-            txtinfo.setText(info);
+        if((brandInfo !=null) && (!brandInfo.isEmpty()))
+            txtinfo.setText(brandInfo);
 
         if(logo_url==null || logo_url.isEmpty()|| logo_url.equals("null")|| logo_url.equals("non"))
             Glide.with(CodeActivity.this).load(R.drawable.icn).into(imgLogo);

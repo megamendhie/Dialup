@@ -30,10 +30,8 @@ import holders.BrandViewHolder;
 import models.Brand;
 import models.GlideApp;
 
-import static models.Commons.BRANDTAG;
+import static models.Commons.BRAND;
 import static models.Commons.CLICKS;
-import static models.Commons.INFO;
-import static models.Commons.LOGO;
 import static models.Commons.NAME;
 import static models.Commons.SECTOR;
 import static models.Commons.getBrandReference;
@@ -42,7 +40,7 @@ import static models.Commons.getNetworkAvailability;
 import static models.Commons.getStorage;
 
 public class BrandActivity extends AppCompatActivity {
-    String country = "NG";
+    private final String country = "NG";
     private final RequestOptions requestOptions = new RequestOptions();
     private ProgressBar prgLoading;
 
@@ -127,19 +125,14 @@ public class BrandActivity extends AppCompatActivity {
             super(options);
         }
 
-
-
         @Override
         protected void onBindViewHolder(@NonNull BrandViewHolder holder, int position, @NonNull final Brand model) {
             Log.i("MyTest", "onCreateView: "+ model.getName());
             holder.txtBrand.setText(model.getName());
             holder.itemView.setOnClickListener(view -> {
                 Intent intent = new Intent(BrandActivity.this, CodeActivity.class);
-                intent.putExtra(BRANDTAG, model.getBrandTag());
-                intent.putExtra(LOGO, model.getLogo());
-                intent.putExtra(INFO, model.getInfo());
+                intent.putExtra(BRAND, model);
                 startActivity(intent);
-                //Toast.makeText(getContext(), model.getName(), Toast.LENGTH_SHORT).show();
 
                 getDatabase().runTransaction((Transaction.Function<Void>) transaction -> {
                     final DocumentReference brandRef =  getBrandReference(country).document(model.getId());
