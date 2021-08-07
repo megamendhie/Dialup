@@ -1,5 +1,5 @@
 ## Welcome to Dialup
-[![image]](https://raw.githubusercontent.com/megamendhie/Dialup/master/images/cover.jpg)(https://play.google.com/store/apps/details?id=com.solojet.dialup)
+[![image](https://raw.githubusercontent.com/megamendhie/Dialup/master/images/cover.jpg)](https://play.google.com/store/apps/details?id=com.solojet.dialup)
 
 Dialup provides your favourites USSD codes and emergency numbers at your finger tip. So you don't have to memorize those USSD codes or emergency numbers anymore.  
   
